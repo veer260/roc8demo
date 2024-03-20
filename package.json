@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "prisma generate && next build",
     "dev": "next dev",
-    "build": "next build",
+    // "build": "",
     "start": "next start",
     "lint": "next lint",
     "generate-prisma": "npx dotenv-cli -e .env.local -- prisma generate",
     "migrate-prisma": "npx dotenv-cli -e .env.local -- prisma migrate dev",
     "prisma:studio": "npx dotenv-cli -e .env.local -- prisma studio",
-    "migrate": "npx dotenv-cli -e .env.local -- prisma migrate deploy"
+    "migrate": "npx dotenv-cli -e .env.local -- prisma migrate deploy",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.11.0",
