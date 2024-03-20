@@ -25,7 +25,7 @@ const OtpInput: FC<OtpInputProps> = ({ length, email }) => {
     otpDigits.forEach((char) => (otp = otp + char));
     console.log(otp);
     setStatus("loading");
-    const res = await fetch("http://localhost:3000/api/signup", {
+    const res = await fetch(`${process.env.BASE_URL}/api/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

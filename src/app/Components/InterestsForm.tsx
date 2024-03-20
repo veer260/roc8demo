@@ -24,7 +24,7 @@ const InterestsForm = ({ initialState, interests, page }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/interests", {
+    const res = await fetch(`${process.env.BASE_URL}/api/interests`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
