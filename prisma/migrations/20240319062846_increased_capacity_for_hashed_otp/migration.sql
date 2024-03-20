@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "OtpToken" ALTER COLUMN "otp" SET DATA TYPE VARCHAR(60);

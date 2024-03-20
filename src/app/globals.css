@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  list-style: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  width: calc(100% - 120px);
+}
+
+.banner::before {
+  content: "<";
+}
+
+.banner::after {
+  content: ">";
+}
+
+.banner::after,
+.banner::before {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.list::after {
+  content: ">";
+}
+
+.list::before {
+  content: "<";
+}
+
+.list::after,
+.list::before {
+  color: #c1c1c1;
+}
