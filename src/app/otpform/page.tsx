@@ -3,7 +3,7 @@ import OtpInput from "../Components/OtpInput";
 import { cookies } from "next/headers";
 
 async function page({ searchParams }: { searchParams: URLSearchParams }) {
-  console.log({ searchParams });
+  // console.log({ searchParams });
   // let index = searchParams.email.indexOf("@");
   // console.log({ index });
 
@@ -22,7 +22,9 @@ async function page({ searchParams }: { searchParams: URLSearchParams }) {
   // const email = cookies().get("email");
   // console.log({ email });
   // console.log();
-  const email = searchParams?.get("email") || "";
+  // console.log({ searchParams });
+  //@ts-ignore
+  const email = searchParams?.email || "";
   return (
     <div>
       <OtpInput email={email} length={8} />

@@ -23,9 +23,12 @@ const OtpInput: FC<OtpInputProps> = ({ length, email }) => {
     e.preventDefault();
     let otp = "";
     otpDigits.forEach((char) => (otp = otp + char));
-    console.log(otp);
+    // console.log(otp);
     setStatus("loading");
-    const res = await fetch(`${process.env.BASE_URL}/api/signup`, {
+    const str = `${process.env.NEXT_PUBLIC_BASE_URL}` + "/api/signup";
+    // console.log({ check: str, email: process.env.SMTP_EMAIL });
+
+    const res = await fetch(str, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
