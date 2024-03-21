@@ -115,7 +115,7 @@ export async function handleForm(prevState: any, formData: FormData) {
   //     password: process.env.SMTP_PASSWORD,
   //   },
   // });
-  sendOtp({ email });
+  const sendingOtp = await sendOtp({ email });
 
   redirect(`/otpform/?email=${email}`);
 

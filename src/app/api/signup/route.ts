@@ -21,8 +21,10 @@ export async function POST(request: Request) {
         email: email,
       },
     });
+    console.log({ token });
     //@ts-ignore
     const { otp } = token;
+    console.log({ otp });
     var isVerified = await bcrypt.compare(inputOtp, otp);
     console.log({ isVerified });
 
