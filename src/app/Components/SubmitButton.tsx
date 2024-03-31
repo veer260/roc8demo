@@ -11,8 +11,11 @@ const SubmitButton: FC<SubmitButtonProps> = ({ children }) => {
   return (
     <button
       type="submit"
-      className="button uppercase  bg-black  text-white rounded-md py-[18.5px]"
-      disabled={status.pending}
+      className={`${
+        status.pending ? "cursor-not-allowed opacity-50" : " "
+      } button uppercase  bg-black  text-white rounded-md py-[18.5px]`}
+      // disabled={status.pending}
+      // disabled={true}
     >
       {children}
     </button>

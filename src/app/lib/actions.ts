@@ -9,7 +9,9 @@ import prisma from "./db";
 import bcrypt from "bcrypt";
 import * as jose from "jose";
 import { error } from "console";
+import { revalidatePath } from "next/cache";
 import { use } from "react";
+import { Layout } from "react-feather";
 
 const schema = z.object({
   email: z.string({
@@ -71,14 +73,14 @@ export async function handleForm(prevState: any, formData: FormData) {
     if (existingUser) {
       return {
         type: "error",
-        message: "email already in use",
+        message: "Email already in use",
       };
     }
   } catch (error) {
     console.log(error);
     return {
       type: "error",
-      message: "something went wrong in database query",
+      message: "Something went wrong in database query",
     };
   }
 
@@ -98,7 +100,7 @@ export async function handleForm(prevState: any, formData: FormData) {
     console.log(error);
     return {
       type: "error",
-      message: "something went wrong in creating the user",
+      message: "Something went wrong in creating the user",
     };
   }
 
@@ -264,4 +266,17 @@ export async function loginAction(prevState, formData) {
 
 export async function handleInterestAction(prevState, formData) {
   console.log(formData.get("reading"));
+}
+
+export async function logoutAction() {
+  // Get cookie
+  // const value = cookies().get("name")?.value;
+
+  // Set cookie
+  // cookies().set("name", "Delba");
+
+  // Delete cookie
+  cookies().delete("authorization");
+  revalidatePath("/", "layout");
+  redirect(`/login`); // Navigate to the login page
 }

@@ -14,8 +14,10 @@ function VerifyButton({
   //   const status = useFormStatus();
   return (
     <button
-      className=" uppercase w-full py-[18.5px] mt-[64px]  bg-black  text-white rounded-md"
-      disabled={status == "loading"}
+      className={`${
+        status == "loading" ? "cursor-not-allowed opacity-50" : " "
+      } uppercase w-full py-[18.5px] mt-[64px]  bg-black  text-white rounded-md`}
+      // disabled={status == "loading"}
     >
       {children}
     </button>

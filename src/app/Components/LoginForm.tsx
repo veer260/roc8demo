@@ -6,6 +6,7 @@ import SubmitButton from "./SubmitButton";
 import { useFormState } from "react-dom";
 import { loginAction } from "@/app/lib/actions";
 import ShowNoShow from "./ShowNoShow";
+import Image from "next/image";
 
 interface InitialStateProps {
   type: string;
@@ -41,8 +42,22 @@ const LoginForm = () => {
         />
         <ShowNoShow />
       </fieldset>
-      {state?.type == "error" && <p>{(state as InitialStateProps).message}</p>}
-
+      {/* {state?.type == "error" && <p>{(state as InitialStateProps).message}</p>} */}
+      {state?.type == "error" && (
+        <p className=" mb-2 text-red-500 font-semibold text-sm ">
+          {" "}
+          <span>
+            <Image
+              className=" inline"
+              width={20}
+              height={20}
+              src="https://softr-assets-eu-shared.s3.eu-central-1.amazonaws.com/studio/blocks/assets/warning.svg"
+              alt=""
+            />
+          </span>{" "}
+          {(state as InitialStateProps).message}
+        </p>
+      )}
       <SubmitButton>login</SubmitButton>
       <hr className="border-b-[1px] border-[#C1C1C1] mt-7 w-full" />
 
