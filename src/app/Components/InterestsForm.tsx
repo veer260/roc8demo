@@ -64,7 +64,14 @@ const InterestsForm = ({ initialState, interests, page }) => {
           interests={interests}
           handleChange={handleChange}
         />
-        {page == "6" && <button type="submit">Submit choices</button>}
+        {page == "6" && (
+          <button
+            className="text-white font-medium px-5 py-3 rounded-md bg-slate-800"
+            type="submit"
+          >
+            Submit choices
+          </button>
+        )}
       </form>
     </div>
   );

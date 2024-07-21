@@ -62,7 +62,7 @@ const LoginForm = () => {
       <hr className="border-b-[1px] border-[#C1C1C1] mt-7 w-full" />
 
       <h3 className="text-[#333333] mt-8">
-        Don:&apost have an Account?{" "}
+        {`Don't have an Account?`}
         <span>
           {" "}
           <Link href="/signup" className="uppercase font-medium text-black">

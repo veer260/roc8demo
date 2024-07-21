@@ -5,6 +5,9 @@ import React from "react";
 const InterestsList = ({ interests, handleChange, isSelected }) => {
   return (
     <div className="flex flex-col items-start gap-6">
+      <h2 className="text-red-500">
+        Please submit your selected hobies on last page
+      </h2>
       {interests.map((i) => {
         return (
           <div key={i.id}>
